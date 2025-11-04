@@ -1,0 +1,2859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products - African Kings Suppliers Ltd</title>
+  <style>
+    /* Reset and base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+    body { line-height: 1.6; color: #333; background-color: #f8f9fa; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+    /* Header styles */
+    header { background-color: #1a5276; color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+    .header-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .logo-container { display: flex; align-items: center; gap: 15px; }
+    .logo-img { width: 60px; height: 60px; object-fit: contain; background-color: white; padding: 5px; border-radius: 5px; }
+    .logo-text { font-size: 1.8rem; font-weight: bold; }
+    .logo-text span { color: #f1c40f; }
+
+    /* Navigation */
+    nav ul { display: flex; list-style: none; flex-wrap: wrap; }
+    nav ul li { margin-left: 1.5rem; }
+    nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding-bottom: 5px; }
+    nav ul li a:hover { color: #f1c40f; }
+    nav ul li a.active { color: #f1c40f; }
+    nav ul li a.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: #f1c40f; }
+
+    /* Hamburger */
+    .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .menu-toggle span { width: 25px; height: 3px; background: white; border-radius: 3px; transition: all 0.3s ease; }
+    nav { position: relative; }
+
+    /* Page Header */
+    .page-header { background: linear-gradient(135deg, #1a5276 0%, #2471a3 100%); color: white; padding: 4rem 0; text-align: center; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>'); background-size: cover; }
+    .page-header h1 { font-size: 2.8rem; margin-bottom: 1rem; position: relative; }
+    .page-header p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; position: relative; }
+
+    /* Breadcrumb */
+    .breadcrumb { background: #e9ecef; padding: 1rem 0; margin-bottom: 2rem; }
+    .breadcrumb .container { display: flex; align-items: center; gap: 10px; }
+    .breadcrumb a { color: #1a5276; text-decoration: none; transition: color 0.3s; }
+    .breadcrumb a:hover { color: #f1c40f; text-decoration: underline; }
+    .breadcrumb span { color: #6c757d; }
+
+    /* Categories Grid */
+    .categories { padding: 4rem 1rem; background: #fff; }
+    .categories h2 { text-align: center; margin-bottom: 3rem; color: #1a5276; font-size: 2.2rem; position: relative; }
+    .categories h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: #f1c40f; border-radius: 2px; }
+    .categories-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+      gap: 30px; 
+      justify-items: center;
+    }
+    .category-card { 
+      background: white; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08); 
+      transition: all 0.4s ease;
+      width: 100%;
+      max-width: 380px;
+      cursor: pointer;
+      position: relative;
+    }
+    .category-card:hover { 
+      transform: translateY(-12px); 
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #1a5276, #f1c40f);
+      z-index: 1;
+    }
+    .category-image { 
+      height: 220px; 
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .category-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .category-card:hover .category-image img {
+      transform: scale(1.1);
+    }
+    .category-content { padding: 1.8rem; }
+    .category-content h3 { color: #1a5276; margin-bottom: 1rem; font-size: 1.4rem; }
+    .category-content p { color: #666; margin-bottom: 1.2rem; line-height: 1.7; }
+    .category-features { margin-bottom: 1.5rem; }
+    .category-features ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .category-features li { background: #e9f7fe; color: #1a5276; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; }
+    .category-stats { display: flex; justify-content: space-between; color: #888; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .view-category-btn { 
+      display: inline-block; 
+      padding: 12px 24px; 
+      background: #f1c40f; 
+      color: #1a5276; 
+      text-decoration: none; 
+      border-radius: 6px; 
+      font-weight: bold; 
+      transition: all 0.3s; 
+      width: 100%;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .view-category-btn:hover { 
+      background: #f39c12; 
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(243, 156, 18, 0.3);
+    }
+
+    /* Products Section */
+    .products-section { padding: 4rem 1rem; background: #f8f9fa; display: none; }
+    .products-section.active { display: block; animation: fadeIn 0.5s ease; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 15px; }
+    .section-header h2 { color: #1a5276; flex: 1; font-size: 2rem; position: relative; padding-bottom: 10px; }
+    .section-header h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: #f1c40f; }
+    .back-to-categories { 
+      background: #1a5276; 
+      color: white; 
+      padding: 12px 24px; 
+      text-decoration: none; 
+      border-radius: 6px; 
+      font-weight: bold; 
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .back-to-categories:hover { 
+      background: #2471a3; 
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(26, 82, 118, 0.3);
+    }
+
+    /* Products Grid */
+    .products-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+      gap: 30px; 
+      justify-items: center;
+    }
+    .product-card { 
+      background: white; 
+      padding: 1.8rem; 
+      border-radius: 10px; 
+      text-align: center; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card:hover { 
+      transform: translateY(-8px); 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #1a5276, #f1c40f);
+    }
+    .product-image { 
+      width: 100%; 
+      height: 180px; 
+      object-fit: contain; 
+      margin-bottom: 1.2rem; 
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+    .product-card h4 { 
+      margin-bottom: 1rem; 
+      color: #1a5276;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .view-product-btn { 
+      display: inline-block; 
+      padding: 10px 20px; 
+      background: #1a5276; 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 6px; 
+      font-weight: bold; 
+      transition: all 0.3s;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+    }
+    .view-product-btn:hover { 
+      background: #2471a3; 
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(26, 82, 118, 0.3);
+    }
+
+    /* Product Modal */
+    .modal { 
+      display: none; 
+      position: fixed; 
+      z-index: 2000; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.85); 
+      animation: fadeIn 0.3s;
+    }
+    .modal-content { 
+      background-color: #fefefe; 
+      margin: 3% auto; 
+      padding: 30px; 
+      border-radius: 12px; 
+      width: 90%; 
+      max-width: 900px; 
+      position: relative;
+      animation: slideIn 0.4s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .close-modal { 
+      position: absolute; 
+      top: 20px; 
+      right: 25px; 
+      color: #aaa; 
+      font-size: 32px; 
+      font-weight: bold; 
+      cursor: pointer; 
+      transition: color 0.3s;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .close-modal:hover { 
+      color: #333; 
+      background: #f1f1f1;
+    }
+    .modal-body { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 30px; 
+      margin-top: 20px;
+    }
+    .modal-image { 
+      flex: 1; 
+      min-width: 350px; 
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-image img { 
+      max-width: 100%; 
+      max-height: 400px; 
+      object-fit: contain; 
+      background: white; 
+      padding: 15px; 
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .modal-details { 
+      flex: 1; 
+      min-width: 350px;
+    }
+    .modal-details h2 { 
+      color: #1a5276; 
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+    .modal-details .product-category { 
+      background: #e9ecef; 
+      padding: 6px 14px; 
+      border-radius: 20px; 
+      font-size: 0.9rem; 
+      color: #495057;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .modal-details p { 
+      margin-bottom: 20px; 
+      line-height: 1.7;
+      color: #555;
+    }
+    .modal-details h3 { 
+      color: #1a5276; 
+      margin: 20px 0 12px;
+      font-size: 1.3rem;
+      position: relative;
+      padding-bottom: 8px;
+    }
+    .modal-details h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #f1c40f;
+    }
+    .modal-details ul { 
+      margin-bottom: 25px; 
+      padding-left: 20px;
+    }
+    .modal-details li { 
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 10px;
+    }
+    .modal-details li::before {
+      content: '•';
+      color: #f1c40f;
+      font-weight: bold;
+      position: absolute;
+      left: -15px;
+    }
+    .modal-actions { 
+      display: flex; 
+      gap: 15px; 
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+    .modal-btn { 
+      padding: 14px 28px; 
+      border: none; 
+      border-radius: 6px; 
+      cursor: pointer; 
+      font-weight: bold; 
+      transition: all 0.3s;
+      flex: 1;
+      min-width: 180px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .inquiry-btn { 
+      background: #f1c40f; 
+      color: #1a5276;
+    }
+    .inquiry-btn:hover { 
+      background: #f39c12;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(243, 156, 18, 0.3);
+    }
+    .quote-btn { 
+      background: #2ecc71; 
+      color: white;
+    }
+    .quote-btn:hover { 
+      background: #27ae60;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+    }
+    .close-btn { 
+      background: #e74c3c; 
+      color: white;
+    }
+    .close-btn:hover { 
+      background: #c0392b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+    }
+
+    /* Newsletter */
+    .newsletter { 
+      background: linear-gradient(135deg, #2471a3 0%, #1a5276 100%); 
+      color: white; 
+      text-align: center; 
+      padding: 3.5rem 1rem; 
+      margin-top: 4rem; 
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: cover;
+    }
+    .newsletter h2 { margin-bottom: 1.5rem; position: relative; font-size: 2rem; }
+    .newsletter p { max-width: 600px; margin: 0 auto 2rem; position: relative; }
+    .newsletter form { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; }
+    .newsletter input { 
+      padding: 1rem 1.2rem; 
+      border: none; 
+      border-radius: 6px; 
+      width: 300px; 
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .newsletter button { 
+      padding: 1rem 2rem; 
+      border: none; 
+      border-radius: 6px; 
+      background: #f1c40f; 
+      color: #1a5276; 
+      font-weight: bold; 
+      cursor: pointer; 
+      transition: all 0.3s;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .newsletter button:hover { 
+      background: #f39c12; 
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Footer */
+    footer { background-color: #1a5276; color: white; padding: 3rem 0 1.5rem; }
+    .footer-logo { display: flex; align-items: center; justify-content: center; margin-bottom: 25px; }
+    .footer-logo-img { width: 50px; height: 50px; object-fit: contain; margin-right: 15px; background-color: white; padding: 3px; border-radius: 5px; }
+    .footer-logo-text { font-size: 1.5rem; font-weight: bold; }
+    .footer-logo-text span { color: #f1c40f; }
+    .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem; margin-bottom: 2.5rem; }
+    .footer-section { flex: 1; min-width: 250px; }
+    .footer-section h3 { margin-bottom: 1.2rem; color: #f1c40f; font-size: 1.3rem; position: relative; padding-bottom: 8px; }
+    .footer-section h3::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: #f1c40f; }
+    .footer-section ul { list-style: none; }
+    .footer-section ul li { margin-bottom: 0.7rem; }
+    .footer-section a { color: white; text-decoration: none; transition: color 0.3s; }
+    .footer-section a:hover { color: #f1c40f; }
+    .social-icons { display: flex; gap: 18px; justify-content: center; margin-top: 1.2rem; }
+    .social-icons a { 
+      color: white; 
+      font-size: 1.5rem; 
+      transition: all 0.3s; 
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    .social-icons a:hover { 
+      color: #f1c40f; 
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+    .copyright { 
+      border-top: 1px solid rgba(255,255,255,0.15); 
+      padding-top: 1.5rem; 
+      font-size: 0.9rem; 
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-float { 
+      position: fixed; 
+      width: 65px; 
+      height: 65px; 
+      bottom: 25px; 
+      right: 25px; 
+      border-radius: 50%; 
+      text-align: center; 
+      box-shadow: 2px 4px 12px rgba(0,0,0,0.3); 
+      z-index: 1000; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      transition: all 0.3s; 
+      background-color: #25d366; 
+      animation: pulse 2s infinite;
+    }
+    .whatsapp-float:hover { 
+      transform: scale(1.1); 
+      box-shadow: 2px 6px 16px rgba(0,0,0,0.4);
+    }
+    .whatsapp-float svg { width: 35px; height: 35px; fill: white; }
+
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideIn { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      nav ul { display: none; }
+      nav ul.active { display: flex; }
+      nav ul { flex-direction: column; width: 100%; background: #1a5276; padding: 1rem 0; position: absolute; top: 100%; left: 0; z-index: 1000; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+      nav ul li { margin: 10px 0; text-align: center; }
+      .categories-grid, .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .modal-body { flex-direction: column; }
+      .modal-image, .modal-details { min-width: 100%; }
+      .modal-actions { flex-direction: column; }
+      .page-header h1 { font-size: 2.2rem; }
+      .page-header { padding: 3rem 0; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .back-to-categories { align-self: flex-end; }
+    }
+    @media (max-width: 480px) {
+      .categories-grid, .products-grid { grid-template-columns: 1fr; }
+      .category-card, .product-card { max-width: 100%; }
+      .modal-content { padding: 20px; margin: 5% auto; }
+      .newsletter input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo-container">
+        <img src="images/Afs logo.PNG" alt="African Kings Logo" class="logo-img" onerror="this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%2260%22 height%3D%2260%22 viewBox%3D%220 0 60 60%22%3E%3Crect width%3D%2260%22 height%3D%2260%22 fill%3D%22%231a5276%22%2F%3E%3Ctext x%3D%2230%22 y%3D%2235%22 font-family%3D%22Arial%22 font-size%3D%2214%22 text-anchor%3D%22middle%22 fill%3D%22white%22%3EAK%3C%2Ftext%3E%3C%2Fsvg%3E'">
+        <div class="logo-text">African <span>Kings</span> Suppliers</div>
+      </div>
+      <nav>
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Our Products</h1>
+      <p>Browse our comprehensive range of medical equipment and supplies organized by categories</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <span>></span>
+      <span>Products</span>
+    </div>
+  </div>
+
+  <!-- Categories Section -->
+  <section id="categories-section" class="categories container">
+    <h2>Product Categories</h2>
+    <div class="categories-grid" id="categoriesGrid">
+      <!-- Categories will be loaded dynamically -->
+    </div>
+  </section>
+
+  <!-- Products Sections (Hidden by default) -->
+  <section id="laboratory-products" class="products-section container">
+    <div class="section-header">
+      <h2>Laboratory Equipment</h2>
+      <a href="#" class="back-to-categories" onclick="showCategories()">
+        <span>←</span> Back to Categories
+      </a>
+    </div>
+    <div class="products-grid" id="laboratoryGrid">
+      <!-- Laboratory products will be loaded dynamically -->
+    </div>
+  </section>
+
+   <section id="maternity-products" class="products-section container">
+    <div class="section-header">
+      <h2>Maternity and Baby Care Equipment</h2>
+      <a href="#" class="back-to-categories" onclick="showCategories()">
+        <span>←</span> Back to Categories
+      </a>
+    </div>
+    <div class="products-grid" id="maternityGrid">
+      <!-- Maternity products will be loaded dynamically -->
+    </div>
+  </section>
+
+   <section id="medical-products" class="products-section container">
+    <div class="section-header">
+      <h2>Medical Consumables</h2>
+      <a href="#" class="back-to-categories" onclick="showCategories()">
+        <span>←</span> Back to Categories
+      </a>
+    </div>
+    <div class="products-grid" id="medicalGrid">
+      <!-- Consumable products will be loaded dynamically -->
+    </div>
+  </section>
+
+  <section id="dental-products" class="products-section container">
+    <div class="section-header">
+      <h2>Dental Equipment</h2>
+      <a href="#" class="back-to-categories" onclick="showCategories()">
+        <span>←</span> Back to Categories
+      </a>
+    </div>
+    <div class="products-grid" id="dentalGrid">
+      <!-- Dental products will be loaded dynamically -->
+    </div>
+  </section>
+
+  <section id="radiology-products" class="products-section container">
+    <div class="section-header">
+      <h2>Radiology Equipment</h2>
+      <a href="#" class="back-to-categories" onclick="showCategories()">
+        <span>←</span> Back to Categories
+      </a>
+    </div>
+    <div class="products-grid" id="radiologyGrid">
+      <!-- Radiology products will be loaded dynamically -->
+    </div>
+  </section>
+
+  <section id="icu-products" class="products-section container">
+    <div class="section-header">
+      <h2>ICU Equipment</h2>
+      <a href="#" class="back-to-categories" onclick="showCategories()">
+        <span>←</span> Back to Categories
+      </a>
+    </div>
+    <div class="products-grid" id="icuGrid">
+      <!-- ICU products will be loaded dynamically -->
+    </div>
+  </section>
+
+  <section id="furniture-products" class="products-section container">
+    <div class="section-header">
+      <h2>Hospital Furniture</h2>
+      <a href="#" class="back-to-categories" onclick="showCategories()">
+        <span>←</span> Back to Categories
+      </a>
+    </div>
+    <div class="products-grid" id="furnitureGrid">
+      <!-- Furniture products will be loaded dynamically -->
+    </div>
+  </section>
+
+  <section id="theatre-products" class="products-section container">
+    <div class="section-header">
+      <h2>Theatre Equipment</h2>
+      <a href="#" class="back-to-categories" onclick="showCategories()">
+        <span>←</span> Back to Categories
+      </a>
+    </div>
+    <div class="products-grid" id="theatreGrid">
+      <!-- Theatre products will be loaded dynamically -->
+    </div>
+  </section>
+
+  <!-- Product Detail Modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <div class="modal-body" id="modalBody">
+        <!-- Modal content will be dynamically inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with our latest products, offers, and medical equipment news</p>
+      <form>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="images/Afs logo.PNG" alt="African Kings Logo" class="footer-logo-img" onerror="this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%2250%22 height%3D%2250%22 viewBox%3D%220 0 50 50%22%3E%3Crect width%3D%2250%22 height%3D%2250%22 fill%3D%22%231a5276%22%2F%3E%3Ctext x%3D%2225%22 y%3D%2230%22 font-family%3D%22Arial%22 font-size%3D%2212%22 text-anchor%3D%22middle%22 fill%3D%22white%22%3EAK%3C%2Ftext%3E%3C%2Fsvg%3E'">
+        <div class="footer-logo-text">African <span>Kings</span> Suppliers</div>
+      </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Our Services</h3>
+          <ul>
+            <li>Theatre Equipment</li>
+            <li>Maternity and Baby Care</li>
+            <li>Dental Equipment</li>
+            <li>Radiology Equipment</li>
+            <li>Laboratory Equipment</li>
+            <li>ICU Equipment</li>
+            <li>Hospital Furniture</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="#newsletter">Newsletter</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>Phone: +254 110 090 572</p>
+          <p>Email: info@africankings.co.ke</p>
+          <p>Nairobi, Kenya</p>
+        </div>
+      </div>
+      <div class="social-icons">
+        <a href="#" title="Facebook">📘</a>
+        <a href="#" title="LinkedIn">💼</a>
+        <a href="#" title="Instagram">📸</a>
+      </div>
+      <div class="copyright"><p>&copy; 2024 African Kings Suppliers Ltd. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/254110090572" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 .396c-8.84 0-16 7.16-16 16 ..."/></svg>
+  </a>
+
+  <script>
+    // Product Categories Data
+    const categories = [
+      {
+        id: 'laboratory',
+        name: 'Laboratory Equipment',
+        description: 'Complete range of laboratory analyzers, microscopes, centrifuges and diagnostic equipment for accurate medical testing.',
+        image: 'images/SMT-70 Semi-Auto Chemistry Analyzer.PNG',
+        productCount: 18,
+        features: ['Chemistry Analyzers', 'Hematology Systems', 'Microscopes', 'Centrifuges']
+      },
+      {
+        id: 'maternity',
+        name: 'Maternity and Baby Care Equipment',
+        description: 'Complete range of Fetal Monitors, electric gynec bed, cryo gun, Gynecology couch, and ultrasound machines for accurate medical testing.',
+        image: 'images/Birthing Bed.jpeg',
+        productCount: 8,
+        features: ['Fetal monitors', 'Gynecology couch', 'Electric gynec bed', 'Video colposcope']
+      },
+      {
+        id: 'medical',
+        name: 'Medical Consumables',
+        description: 'Complete range of IV Cannula, syringes, blood bags and consumable equipment for accurate medical testing.',
+        image: 'images/modèle pour éditer un rapport en html.jpeg',
+        productCount: 15,
+        features: ['Ultrasound ECG Gel', 'Thermal Paper Roll', 'Blood Bag', 'Syringes']
+      },
+      {
+        id: 'dental',
+        name: 'Dental Equipment',
+        description: 'Modern dental chairs, X-ray systems, and specialized dental instruments for comprehensive dental care.',
+        image: 'images/dental chair unit.PNG',
+        productCount: 18,
+        features: ['Dental Chairs', 'X-ray Systems', 'Sterilizers', 'Handpieces']
+      },
+      {
+        id: 'radiology',
+        name: 'Radiology Equipment',
+        description: 'Advanced imaging systems including X-ray, ultrasound, and ECG machines for precise diagnostics.',
+        image: 'images/IG @kristina_7oh7.jpeg',
+        productCount: 12,
+        features: ['X-ray Machines', 'Ultrasound Systems', 'ECG Machines', 'CT Scanners']
+      },
+      {
+        id: 'icu',
+        name: 'ICU Equipment',
+        description: 'Critical care equipment for intensive care units and emergency departments to save lives.',
+        image: 'images/OP.jpeg',
+        productCount: 8,
+        features: ['Ventilators', 'Patient Monitors', 'Infusion Pumps', 'Defibrillators']
+      },
+      {
+        id: 'furniture',
+        name: 'Hospital Furniture',
+        description: 'Comfortable and functional furniture for hospitals and clinics to enhance patient care.',
+        image: 'images/ICU Equipment _ ICU Equipment Suppliers in UAE _ Dubai.jpeg',
+        productCount: 15,
+        features: ['Hospital Beds', 'Examination Tables', 'Medical Carts', 'ICU Beds']
+      },
+      {
+        id: 'theatre',
+        name: 'Theatre Equipment',
+        description: 'Operating room equipment and surgical instruments for safe and efficient surgical procedures.',
+        image: 'images/Operation Theatre.jpeg',
+        productCount: 16,
+        features: ['Operating Tables', 'Surgical Lights', 'Anesthesia Machines', 'Sterilization']
+      }
+    ];
+
+    // Products Data
+    const products = {
+      laboratory: [
+        {
+          id: 'hematology-analyzer',
+          name: 'Hematology Analyzer',
+          category: 'Laboratory Equipment',
+          image: 'images/hematology-analyzer.jpg',
+          description: 'Advanced hematology analyzer for complete blood count (CBC) testing with high accuracy and efficiency. Ideal for clinical laboratories and hospitals.',
+          features: [
+            'Automated 3-part differential',
+            'High throughput: up to 60 samples/hour',
+            'Compact design with small footprint',
+            'User-friendly interface',
+            'Low reagent consumption'
+          ],
+          specifications: [
+            'Measurement Parameters: 18 parameters + 3 histograms',
+            'Sample Volume: 20μL (Open mode) / 85μL (Closed mode)',
+            'Throughput: Up to 60 samples/hour',
+            'Dimensions: 550mm (W) x 550mm (D) x 470mm (H)'
+          ]
+        },
+        {
+          id: 'biochemistry-analyzer',
+          name: 'Biochemistry Analyzer',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+        {
+          id: 'centrifuge',
+          name: 'Laboratory Centrifuge',
+          category: 'Laboratory Equipment',
+          image: 'images/centrifuge.jpg',
+          description: 'High-speed centrifuge for various laboratory applications including blood separation and sample preparation.',
+          features: [
+            'Brushless DC motor',
+            'Programmable operation',
+            'Auto rotor recognition',
+            'Imbalance detection',
+            'Quiet operation'
+          ],
+          specifications: [
+            'Max Speed: 6000 rpm',
+            'Max RCF: 5310 x g',
+            'Capacity: 4 x 100ml or 8 x 50ml',
+            'Timer: 1-99 minutes'
+          ]
+        },
+        {
+          id: 'microscope',
+          name: 'Laboratory Microscope',
+          category: 'Laboratory Equipment',
+          image: 'images/microscope.jpg',
+          description: 'Professional biological microscope with LED illumination for clinical and research applications.',
+          features: [
+            'LED illumination with intensity control',
+            'Plan achromatic objectives',
+            'Coaxial coarse and fine focusing',
+            'Built-in mechanical stage',
+            'Ergonomic design'
+          ],
+          specifications: [
+            'Magnification: 40x-1000x',
+            'Objectives: 4x, 10x, 40x, 100x (oil immersion)',
+            'Eyepieces: WF10x/18mm',
+            'Illumination: 3W LED'
+          ]
+        },
+         {
+          id: 'electrolyte-analyzer',
+          name: 'Electrolyte Analyzer',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'urine-analyzer',
+          name: 'Urine Analyzer',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'blood-bank-refrigrator',
+          name: 'Blood Bank Refrigrator ',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'blood-gas-analyzer',
+          name: 'Blood Gas Analyzer',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'mini-centrifuge',
+          name: 'Mini Centrifuge',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'corgulation-analyzer',
+          name: 'Corgulation Analyzer',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'elisa-reader',
+          name: 'Elisa Reader',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'cytology-analyzer',
+          name: 'Cytology Analyzer',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'laboratory-fume-hood',
+          name: 'Laboratory Fume Hood',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'microplate-reader',
+          name: 'Microplate Reader',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'laboratory-incubator',
+          name: 'Laboratory Incubator',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'liquid-based-cytology',
+          name: 'Liquid Based Cytology',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'microbalancee',
+          name: 'Microbalance',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'pipette',
+          name: 'Pipette',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+         {
+          id: 'vortex-mixer',
+          name: 'Vortex Mixer Test',
+          category: 'Laboratory Equipment',
+          image: 'images/chemistry-analyzer.jpg',
+          description: 'Fully automated clinical chemistry analyzer for precise biochemical testing with random access capability.',
+          features: [
+            'Random access testing',
+            'Barcode sample identification',
+            'On-board refrigeration',
+            'Automatic calibration',
+            'Comprehensive quality control'
+          ],
+          specifications: [
+            'Testing Speed: Up to 400 tests/hour',
+            'Sample Capacity: 100 samples',
+            'Reagent Capacity: 40 reagents on board',
+            'Sample Volume: 2-35μL'
+          ]
+        },
+      ],
+      maternity: [
+        {
+          id: 'fetal-monitor',
+          name: 'Fetal Monitor',
+          category: 'Maternity Equipment',
+          image: 'images/fetal-monitor.jpg',
+          description: 'Advanced fetal monitoring system for continuous monitoring of fetal heart rate and uterine activity.',
+          features: [
+            'Continuous monitoring',
+            'Clear LCD display',
+            'Built-in printer',
+            'Long battery life',
+            'Portable design'
+          ],
+          specifications: [
+            'FHR Range: 50-210 bpm',
+            'Toco Range: 0-100',
+            'Display: 8.4" color LCD',
+            'Battery: 4 hours continuous use'
+          ]
+        },
+        {
+          id: 'gynecology-couch',
+          name: 'Gynecology Couch',
+          category: 'Maternity Equipment',
+          image: 'images/gynecology-couch.jpg',
+          description: 'Professional gynecology examination couch with adjustable positions for patient comfort.',
+          features: [
+            'Electric height adjustment',
+            'Stirrups included',
+            'Comfortable padding',
+            'Easy to clean',
+            'Storage drawers'
+          ],
+          specifications: [
+            'Dimensions: 2000 x 700 x 750 mm',
+            'Height Adjustment: 650-950 mm',
+            'Load Capacity: 200 kg',
+            'Material: Leather upholstery'
+          ]
+        },
+        {
+          id: 'electric-gynec-bed',
+          name: 'Electric Gynec Bed',
+          category: 'Maternity Equipment',
+          image: 'images/fetal-monitor.jpg',
+          description: 'Advanced fetal monitoring system for continuous monitoring of fetal heart rate and uterine activity.',
+          features: [
+            'Continuous monitoring',
+            'Clear LCD display',
+            'Built-in printer',
+            'Long battery life',
+            'Portable design'
+          ],
+          specifications: [
+            'FHR Range: 50-210 bpm',
+            'Toco Range: 0-100',
+            'Display: 8.4" color LCD',
+            'Battery: 4 hours continuous use'
+          ]
+        },
+        {
+          id: 'fetal-droppler',
+          name: 'Fetal Droppler',
+          category: 'Maternity Equipment',
+          image: 'images/fetal-monitor.jpg',
+          description: 'Advanced fetal monitoring system for continuous monitoring of fetal heart rate and uterine activity.',
+          features: [
+            'Continuous monitoring',
+            'Clear LCD display',
+            'Built-in printer',
+            'Long battery life',
+            'Portable design'
+          ],
+          specifications: [
+            'FHR Range: 50-210 bpm',
+            'Toco Range: 0-100',
+            'Display: 8.4" color LCD',
+            'Battery: 4 hours continuous use'
+          ]
+        },
+        {
+          id: 'video-colposcope',
+          name: 'Video Colposcope',
+          category: 'Maternity Equipment',
+          image: 'images/fetal-monitor.jpg',
+          description: 'Advanced fetal monitoring system for continuous monitoring of fetal heart rate and uterine activity.',
+          features: [
+            'Continuous monitoring',
+            'Clear LCD display',
+            'Built-in printer',
+            'Long battery life',
+            'Portable design'
+          ],
+          specifications: [
+            'FHR Range: 50-210 bpm',
+            'Toco Range: 0-100',
+            'Display: 8.4" color LCD',
+            'Battery: 4 hours continuous use'
+          ]
+        },{
+          id: 'gynecology-instrument',
+          name: 'Gynecology Instrument',
+          category: 'Maternity Equipment',
+          image: 'images/fetal-monitor.jpg',
+          description: 'Advanced fetal monitoring system for continuous monitoring of fetal heart rate and uterine activity.',
+          features: [
+            'Continuous monitoring',
+            'Clear LCD display',
+            'Built-in printer',
+            'Long battery life',
+            'Portable design'
+          ],
+          specifications: [
+            'FHR Range: 50-210 bpm',
+            'Toco Range: 0-100',
+            'Display: 8.4" color LCD',
+            'Battery: 4 hours continuous use'
+          ]
+        },
+        {
+          id: 'cyro-gun',
+          name: 'Cyro Gun',
+          category: 'Maternity Equipment',
+          image: 'images/fetal-monitor.jpg',
+          description: 'Advanced fetal monitoring system for continuous monitoring of fetal heart rate and uterine activity.',
+          features: [
+            'Continuous monitoring',
+            'Clear LCD display',
+            'Built-in printer',
+            'Long battery life',
+            'Portable design'
+          ],
+          specifications: [
+            'FHR Range: 50-210 bpm',
+            'Toco Range: 0-100',
+            'Display: 8.4" color LCD',
+            'Battery: 4 hours continuous use'
+          ]
+        },
+        {
+          id: 'ultrasound-machine',
+          name: 'Ultrasound Machine',
+          category: 'Maternity Equipment',
+          image: 'images/fetal-monitor.jpg',
+          description: 'Advanced fetal monitoring system for continuous monitoring of fetal heart rate and uterine activity.',
+          features: [
+            'Continuous monitoring',
+            'Clear LCD display',
+            'Built-in printer',
+            'Long battery life',
+            'Portable design'
+          ],
+          specifications: [
+            'FHR Range: 50-210 bpm',
+            'Toco Range: 0-100',
+            'Display: 8.4" color LCD',
+            'Battery: 4 hours continuous use'
+          ]
+        },
+      ],
+      medical: [
+        {
+          id: 'iv-cannula',
+          name: 'IV Cannula Set',
+          category: 'Medical Consumables',
+          image: 'images/iv-cannula.jpg',
+          description: 'Sterile IV cannula sets for safe and efficient intravenous access.',
+          features: [
+            'Safety needle design',
+            'Clear flashback chamber',
+            'Wings for secure fixation',
+            'Multiple sizes available',
+            'Sterile and pyrogen-free'
+          ],
+          specifications: [
+            'Sizes: 14G to 24G',
+            'Length: 25-32 mm',
+            'Material: Teflon catheter',
+            'Sterilization: EO gas'
+          ]
+        },
+        {
+          id: 'syringe',
+          name: 'Disposable Syringe',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'blood-bag',
+          name: 'Blood Bag ',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'face-mask',
+          name: 'Face Mask',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'scalp-vein-set',
+          name: 'Scalp Vein Set',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'urine-bag',
+          name: 'Urine Bag',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'gauze-swab',
+          name: 'Non Sterile Gauze Swab',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: '3-way-stopcock',
+          name: '3-Way Stopcock',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'ultrasound-ecg-gel',
+          name: 'Ultrasound ECG Gel',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'ecg-paper',
+          name: 'ECG Paper',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'cotton-balls',
+          name: 'Cotton Balls',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'adult-diapers',
+          name: 'Adult Diapers',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'kidney-tray',
+          name: 'Kidney Tray',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'blood-pressure-monitor',
+          name: 'Blood Pressure Monitor',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'medical-gloves',
+          name: 'Medical Gloves',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        },
+        {
+          id: 'thermal-paper',
+          name: 'Thermal Paper Roll',
+          category: 'Medical Consumables',
+          image: 'images/syringe.jpg',
+          description: 'High-quality disposable syringes for medical injections and fluid administration.',
+          features: [
+            'Clear barrel for accurate dosing',
+            'Smooth plunger movement',
+            'Sharp, lubricated needle',
+            'Single-use design',
+            'Sterile packaging'
+          ],
+          specifications: [
+            'Sizes: 1ml to 60ml',
+            'Needle Gauge: 18G to 27G',
+            'Material: Polypropylene',
+            'Sterilization: Gamma radiation'
+          ]
+        }
+      ],
+      dental: [
+        {
+          id: 'dental-chair',
+          name: 'Dental Chair Unit',
+          category: 'Dental Equipment',
+          image: 'images/dental-chair.jpg',
+          description: 'Modern dental chair unit with advanced features for patient comfort and practitioner efficiency.',
+          features: [
+            'Electric height adjustment',
+            'Programmable positions',
+            'Integrated instrument delivery system',
+            'LED operating light',
+            'Easy-to-clean upholstery'
+          ],
+          specifications: [
+            'Chair Movement: Electric, 5-program memory',
+            'Light: LED, 30,000-50,000 Lux',
+            'Delivery System: 3-way syringe, high/low speed handpieces',
+            'Dimensions: 2000mm (L) x 650mm (W) x 1100-1500mm (H)'
+          ]
+        },
+        {
+          id: 'apex-locator',
+          name: 'Apex Locator',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'dental-xray',
+          name: 'Dental X-ray',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'panoramic-xray',
+          name: 'Panoramic X-ray',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'endomotor',
+          name: 'Endomotor',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'suction-machine',
+          name: 'Suction Machine',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'dental-autoclave',
+          name: 'Dental Autoclave',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'root-canal-apex-locator',
+          name: 'Root Canal Apex Locator',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'dental-rug',
+          name: 'Dental RUG',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'light-cure',
+          name: 'Light Cure',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'hand-piece',
+          name: 'Hand Piece',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'ultrasonic-cleaner',
+          name: 'Ultrasonic Cleaner',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'ultrasonic-scaler',
+          name: 'Ultrasonic Scaler',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'whitening-machine',
+          name: 'Teeth Whitening Machine',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'compressor',
+          name: 'Compressor',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'portable-dental-chair',
+          name: 'Portable Dental Chair',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'portable-dental-set',
+          name: 'Portable Dental Set',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        },
+        {
+          id: 'portable-dental-xray',
+          name: 'Portable Dental Xray',
+          category: 'Dental Equipment',
+          image: 'images/apex-locator.jpg',
+          description: 'Electronic apex locator for accurate determination of root canal working length.',
+          features: [
+            'Automatic calibration',
+            'Multi-frequency technology',
+            'Clear visual and audible signals',
+            'Battery operated',
+            'Compact and portable'
+          ],
+          specifications: [
+            'Measurement Range: 0.5-8mm from apex',
+            'Accuracy: ±0.5mm',
+            'Display: LCD with battery indicator',
+            'Power: 9V battery'
+          ]
+        }
+      ],
+      radiology: [
+        {
+          id: 'xray-machine',
+          name: 'Digital X-ray Machine',
+          category: 'Radiology Equipment',
+          image: 'images/xray-machine.jpg',
+          description: 'Advanced digital radiography system for high-resolution medical imaging with automatic exposure control.',
+          features: [
+            'High-frequency generator',
+            'Automatic exposure control',
+            'Digital image processing',
+            'DICOM compatibility',
+            'Motorized positioning'
+          ],
+          specifications: [
+            'Power: 50 kW',
+            'Tube Voltage: 40-150 kV',
+            'Tube Current: 10-630 mA',
+            'Focal Spot: 0.6/1.2 mm'
+          ]
+        },
+        {
+          id: 'ultrasound',
+          name: 'Ultrasound System',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'ct-scan',
+          name: 'CT Scan',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'mri-scan',
+          name: 'MRI Scan',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'xray-film-printer',
+          name: 'Xray Film Printer',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'digital-c-arm',
+          name: 'Digital C Arm',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'mobile-xray',
+          name: 'Mobile X-ray',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'cr-scanner',
+          name: 'CR Scanner',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'lead-apron',
+          name: 'Lead Apron',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'lead-barrier',
+          name: 'Lead Barrier',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'xray-warning-light',
+          name: 'X-ray Warning Light',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        },
+        {
+          id: 'xray-film-viewer',
+          name: 'X-ray Film Viewer',
+          category: 'Radiology Equipment',
+          image: 'images/ultrasound.jpg',
+          description: 'Versatile ultrasound system for various diagnostic applications with high-resolution imaging.',
+          features: [
+            'High-resolution imaging',
+            'Multiple transducer options',
+            'Advanced measurement packages',
+            'Cineloop review',
+            'DICOM connectivity'
+          ],
+          specifications: [
+            'Display: 15-inch color LCD',
+            'Probes: Convex, linear, phased array',
+            'Frequency Range: 2.5-10 MHz',
+            'Image Memory: 1000+ images'
+          ]
+        }
+      ],
+      icu: [
+        {
+          id: 'ventilator',
+          name: 'ICU Ventilator',
+          category: 'ICU Equipment',
+          image: 'images/ventilator.jpg',
+          description: 'Advanced critical care ventilator for intensive care unit applications with multiple ventilation modes.',
+          features: [
+            'Multiple ventilation modes',
+            'Integrated monitoring',
+            'Touchscreen interface',
+            'Battery backup',
+            'Comprehensive alarm system'
+          ],
+          specifications: [
+            'Modes: Volume, Pressure, SIMV, CPAP, PSV',
+            'Tidal Volume: 50-2000 ml',
+            'Respiratory Rate: 1-80 bpm',
+            'O2 Concentration: 21-100%'
+          ]
+        },
+        {
+          id: 'patient-monitor',
+          name: 'Patient Monitor',
+          category: 'ICU Equipment',
+          image: 'images/patient-monitor.jpg',
+          description: 'Multi-parameter patient monitor for continuous vital signs monitoring in critical care settings.',
+          features: [
+            'ECG, SpO2, NIBP, Temp monitoring',
+            'High-resolution color display',
+            'Trend storage and review',
+            'Network connectivity',
+            'Portable design'
+          ],
+          specifications: [
+            'ECG: 3/5-lead, heart rate 30-300 bpm',
+            'SpO2: 0-100%, pulse rate 30-250 bpm',
+            'NIBP: 0-300 mmHg',
+            'Temperature: 0-50°C'
+          ]
+        }
+      ],
+      furniture: [
+        {
+          id: 'hospital-bed',
+          name: 'Hospital Bed',
+          category: 'Hospital Furniture',
+          image: 'images/hospital-bed.jpg',
+          description: 'Electric hospital bed with multiple positioning options for patient comfort and care.',
+          features: [
+            'Electric height and backrest adjustment',
+            'Four-section mattress platform',
+            'Side rails with central release',
+            'IV pole sockets',
+            'Easy-to-clean surfaces'
+          ],
+          specifications: [
+            'Mattress Size: 2000 x 900 mm',
+            'Height Adjustment: 450-850 mm',
+            'Backrest: 0-75°',
+            'Knee Break: 0-30°'
+          ]
+        },
+        {
+          id: 'examination-table',
+          name: 'Examination Table',
+          category: 'Hospital Furniture',
+          image: 'images/examination-table.jpg',
+          description: 'Medical examination table for clinical consultations and minor procedures.',
+          features: [
+            'Hydraulic height adjustment',
+            'Comfortable upholstery',
+            'Storage drawers',
+            'Paper roll holder',
+            'Stirrups for gynecological exams'
+          ],
+          specifications: [
+            'Table Top: 2000 x 600 mm',
+            'Height Range: 650-950 mm',
+            'Load Capacity: 200 kg',
+            'Finish: Epoxy powder coating'
+          ]
+        }
+      ],
+      theatre: [
+        {
+          id: 'operating-table',
+          name: 'Operating Table',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+        {
+          id: 'surgical-light',
+          name: 'Surgical Light',
+          category: 'Theatre Equipment',
+          image: 'images/surgical-light.jpg',
+          description: 'High-intensity surgical light with shadow reduction technology for optimal illumination.',
+          features: [
+            'LED technology',
+            'Shadow reduction',
+            'Color temperature control',
+            'Sterile handle',
+            'Easy maneuverability'
+          ],
+          specifications: [
+            'Light Intensity: 160,000 Lux',
+            'Color Temperature: 4000-5000K',
+            'Field Diameter: 200-300 mm',
+            'Depth of Illumination: 15-25 cm'
+          ]
+        },
+         {
+          id: 'anesthesia-machine',
+          name: 'Anesthesia Machine',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'ventillator',
+          name: 'Ventillator',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'electrosurgery-unit',
+          name: 'Electrosurgery Unit',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'endoscopy',
+          name: 'Endoscopy',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'baby-incubator',
+          name: 'Baby Incubator',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'infusion-pump',
+          name: 'Infusion Pump',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'ventillator-compressor',
+          name: 'Ventillator With Compressor ',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'surgial-suction',
+          name: 'Surgical Suction',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'defibrillator',
+          name: 'Defibrillator',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'patient-monitor',
+          name: 'Patient Monitor',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        },
+         {
+          id: 'syringe-pump',
+          name: 'Syringe Pump',
+          category: 'Theatre Equipment',
+          image: 'images/operating-table.jpg',
+          description: 'Advanced surgical operating table with multiple positioning capabilities for various procedures.',
+          features: [
+            'Electric positioning',
+            'Radioucent table top',
+            'Multiple table top sections',
+            'Trendelenburg capability',
+            'Easy to clean'
+          ],
+          specifications: [
+            'Table Top Length: 2000 mm',
+            'Height Range: 700-1050 mm',
+            'Load Capacity: 250 kg',
+            'Trendelenburg: ±25°'
+          ]
+        }
+      ]
+    };
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+      loadCategories();
+      loadAllProducts();
+      setupMobileMenu();
+    });
+
+    // Mobile menu functionality
+    function setupMobileMenu() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Animate hamburger to X
+        const spans = menuToggle.querySelectorAll('span');
+        if (navLinks.classList.contains('active')) {
+          spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+          spans[1].style.opacity = '0';
+          spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+        } else {
+          spans[0].style.transform = 'none';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'none';
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      const navItems = document.querySelectorAll('#nav-links a');
+      navItems.forEach(item => {
+        item.addEventListener('click', function() {
+          navLinks.classList.remove('active');
+          const spans = menuToggle.querySelectorAll('span');
+          spans[0].style.transform = 'none';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'none';
+        });
+      });
+    }
+
+    // Load categories
+    function loadCategories() {
+      const categoriesGrid = document.getElementById('categoriesGrid');
+      categoriesGrid.innerHTML = categories.map(category => `
+        <div class="category-card" onclick="showCategory('${category.id}')">
+          <div class="category-image">
+            <img src="${category.image}" alt="${category.name}" onerror="this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%22380%22 height%3D%22220%22 viewBox%3D%220 0 380 220%22%3E%3Crect width%3D%22380%22 height%3D%22220%22 fill%3D%22%23f8f9fa%22%2F%3E%3Ctext x%3D%22190%22 y%3D%22120%22 font-family%3D%22Arial%22 font-size%3D%2216%22 text-anchor%3D%22middle%22 fill%3D%22%23666%22%3EImage Coming Soon%3C%2Ftext%3E%3C%2Fsvg%3E'">
+          </div>
+          <div class="category-content">
+            <h3>${category.name}</h3>
+            <p>${category.description}</p>
+            <div class="category-features">
+              <ul>
+                ${category.features.map(feature => `<li>${feature}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="category-stats">
+              <span>${category.productCount} Products</span>
+              <span>Click to view</span>
+            </div>
+            <button class="view-category-btn">View Category</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Load all products into their respective sections
+    function loadAllProducts() {
+      Object.keys(products).forEach(categoryId => {
+        const grid = document.getElementById(`${categoryId}Grid`);
+        if (grid) {
+          grid.innerHTML = products[categoryId].map(product => `
+            <div class="product-card" onclick="viewProduct('${categoryId}', '${product.id}')">
+              <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%22300%22 height%3D%22180%22 viewBox%3D%220 0 300 180%22%3E%3Crect width%3D%22300%22 height%3D%22180%22 fill%3D%22%23f8f9fa%22%2F%3E%3Ctext x%3D%22150%22 y%3D%22100%22 font-family%3D%22Arial%22 font-size%3D%2214%22 text-anchor%3D%22middle%22 fill%3D%22%23666%22%3EProduct Image%3C%2Ftext%3E%3C%2Fsvg%3E'">
+              <h4>${product.name}</h4>
+              <button class="view-product-btn">View Details</button>
+            </div>
+          `).join('');
+        }
+      });
+    }
+
+    // Show categories section
+    function showCategories() {
+      document.getElementById('categories-section').style.display = 'block';
+      document.querySelectorAll('.products-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Update breadcrumb
+      updateBreadcrumb('Products');
+      
+      // Scroll to top
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Show specific category
+    function showCategory(categoryId) {
+      document.getElementById('categories-section').style.display = 'none';
+      document.querySelectorAll('.products-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      const categorySection = document.getElementById(`${categoryId}-products`);
+      if (categorySection) {
+        categorySection.classList.add('active');
+      }
+      
+      // Update breadcrumb
+      const category = categories.find(cat => cat.id === categoryId);
+      if (category) {
+        updateBreadcrumb('Products', category.name);
+      }
+      
+      // Scroll to top
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Update breadcrumb
+    function updateBreadcrumb(...items) {
+      const breadcrumb = document.querySelector('.breadcrumb .container');
+      let html = '<a href="index.html">Home</a>';
+      
+      items.forEach((item, index) => {
+        html += '<span>></span>';
+        if (index === items.length - 1) {
+          html += `<span>${item}</span>`;
+        } else {
+          html += `<a href="#" onclick="showCategories()">${item}</a>`;
+        }
+      });
+      
+      breadcrumb.innerHTML = html;
+    }
+
+    // View product details
+    function viewProduct(categoryId, productId) {
+      const categoryProducts = products[categoryId];
+      const product = categoryProducts.find(p => p.id === productId);
+      
+      if (!product) return;
+      
+      const modalBody = document.getElementById('modalBody');
+      modalBody.innerHTML = `
+        <div class="modal-image">
+          <img src="${product.image}" alt="${product.name}" onerror="this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%22400%22 height%3D%22300%22 viewBox%3D%220 0 400 300%22%3E%3Crect width%3D%22400%22 height%3D%22300%22 fill%3D%22%23f8f9fa%22%2F%3E%3Ctext x%3D%22200%22 y%3D%22160%22 font-family%3D%22Arial%22 font-size%3D%2216%22 text-anchor%3D%22middle%22 fill%3D%22%23666%22%3EProduct Image Coming Soon%3C%2Ftext%3E%3C%2Fsvg%3E'">
+        </div>
+        <div class="modal-details">
+          <h2>${product.name}</h2>
+          <div class="product-category">${product.category}</div>
+          <p>${product.description}</p>
+          
+          <h3>Key Features</h3>
+          <ul>
+            ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+          </ul>
+          
+          <h3>Specifications</h3>
+          <ul>
+            ${product.specifications.map(spec => `<li>${spec}</li>`).join('')}
+          </ul>
+          
+          <div class="modal-actions">
+            <button class="modal-btn inquiry-btn" onclick="inquireAboutProduct('${product.name}')">
+              <span>📧</span> Request Information
+            </button>
+            <button class="modal-btn quote-btn" onclick="requestQuote('${product.name}')">
+              <span>💰</span> Get Quote
+            </button>
+            <button class="modal-btn close-btn" onclick="closeModal()">
+              <span>✕</span> Close
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('productModal').style.display = 'block';
+    }
+
+    // Close modal
+    function closeModal() {
+      document.getElementById('productModal').style.display = 'none';
+    }
+
+    // Inquire about product
+    function inquireAboutProduct(productName) {
+      const message = `Hello, I'm interested in learning more about your ${productName}. Please provide more information.`;
+      const whatsappUrl = `https://wa.me/254110090572?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Request quote
+    function requestQuote(productName) {
+      const message = `Hello, I would like to request a quote for ${productName}. Please provide pricing and availability.`;
+      const whatsappUrl = `https://wa.me/254110090572?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('productModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
